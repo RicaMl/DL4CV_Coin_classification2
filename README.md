@@ -12,11 +12,10 @@ Classification de pièces de monnaie par CNN (AlexNet) sur le dataset Kaggle [DL
 | Métrique | Valeur |
 |---|---|
 | Meilleur epoch | 28 / 30 |
-| Val Accuracy | **71.46%** |
+| Test Accuracy | **69.00%** |
 | Train Accuracy | 94.20% |
 | Nombre de classes | 315 |
 | Référence hasard | 0.32% |
-| GPU utilisé | NVIDIA T4 (Google Colab) |
 
 ---
 
@@ -36,14 +35,14 @@ AlexNet modifié — différences vs paper original (2012) :
 ## Structure du projet
 
 ```
-coin_classification/
+src/
 ├── main.py        # Point d'entrée principal
 ├── dataset.py     # Chargement, scan, split, DataLoaders
 ├── model.py       # Architecture AlexNet
 ├── train.py       # Boucle d'entraînement
 ├── evaluate.py    # Courbes, matrice de confusion, rapport
 ├── predict.py     # Inférence sur une image
-└── README.md
+README.md
 ```
 
 ---
@@ -53,6 +52,13 @@ coin_classification/
 ```bash
 pip install torch torchvision matplotlib seaborn scikit-learn pandas pillow
 ```
+
+##Jeu de données (Dataset)
+
+Le modèle est entraîné sur le dataset officiel de la compétition Kaggle :
+**Lien du dataset :** [DL4CV - Coin Classification](https://www.kaggle.com/competitions/dl4cv-coin-classification/overview)
+
+*Note : Pour que le code fonctionne sans modification, veuillez extraire les images dans un dossier nommé `data/` à la racine du projet.*
 
 ---
 
