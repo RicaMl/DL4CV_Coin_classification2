@@ -29,29 +29,29 @@ class AlexNet(nn.Module):
 
         # ── Couches convolutives ──────────────────────────────────
         self.features = nn.Sequential(
-            # [0] Conv1 — bias=False (BN prend en charge)
+            # Conv1 — bias=False (BN prend en charge)
             nn.Conv2d(3, 96, kernel_size=11, stride=4, padding=0, bias=False),
             nn.ReLU(inplace=True),
             nn.BatchNorm2d(96),
             nn.MaxPool2d(kernel_size=3, stride=2),
 
-            # [4] Conv2
+            # Conv2
             nn.Conv2d(96, 256, kernel_size=5, padding=2, bias=False),
             nn.ReLU(inplace=True),
             nn.BatchNorm2d(256),
             nn.MaxPool2d(kernel_size=3, stride=2),
 
-            # [8] Conv3
+            # Conv3
             nn.Conv2d(256, 384, kernel_size=3, padding=1, bias=False),
             nn.ReLU(inplace=True),
             nn.BatchNorm2d(384),
 
-            # [11] Conv4
+            # Conv4
             nn.Conv2d(384, 384, kernel_size=3, padding=1, bias=False),
             nn.ReLU(inplace=True),
             nn.BatchNorm2d(384),
 
-            # [14] Conv5
+            # Conv5
             nn.Conv2d(384, 256, kernel_size=3, padding=1, bias=False),
             nn.ReLU(inplace=True),
             nn.BatchNorm2d(256),
