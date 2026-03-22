@@ -67,7 +67,7 @@ def train(model, train_loader, val_loader, device,
         weight_decay=weight_decay
     )
     scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
-        optimizer, mode='max', factor=0.1, patience=5, min_lr=1e-6
+        optimizer, mode='max', factor=0.1, patience=3, min_lr=1e-6
     )
     criterion = nn.CrossEntropyLoss()
 
