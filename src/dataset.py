@@ -92,8 +92,7 @@ def get_transforms():
     """Retourne les transforms train et val/test."""
     train_transform = transforms.Compose([
         transforms.Resize((256, 256)),
-        transforms.RandomRotation(180),   # rotation AVANT le crop
-        transforms.RandomCrop(227),       # absorbe les coins noirs
+        transforms.RandomCrop(227),
         transforms.RandomHorizontalFlip(p=0.5),
         transforms.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.1),
         transforms.ToTensor(),
@@ -119,9 +118,6 @@ def get_loaders(csv_path: str, img_dir: str,
     random.seed(seed)
     np.random.seed(seed)
     torch.manual_seed(seed)
-    torch.cuda.manual_seed_all(seed)
-    torch.backends.cudnn.deterministic = True
-    torch.backends.cudnn.benchmark = False
 
     # Scan
     clean_df = scan_valid_images(csv_path, img_dir)
